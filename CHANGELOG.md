@@ -1,3 +1,18 @@
+# [1.5.0](https://github.com/CoCreate-app/CoCreate-webpack/compare/v1.4.3...v1.5.0) (2026-07-11)
+
+
+### Bug Fixes
+
+* remove devDependencies ([c430e68](https://github.com/CoCreate-app/CoCreate-webpack/commit/c430e685803c28b386d8b899348b04f8019e795a))
+* remove postinstall script and ensure dependencies are correctly listed in package.json ([f851cd7](https://github.com/CoCreate-app/CoCreate-webpack/commit/f851cd764023e56f33c7bd251ea97f1afd14b295))
+* removed post install and add add packages to apprved list ([601dda4](https://github.com/CoCreate-app/CoCreate-webpack/commit/601dda4b5a7503262fc8ac35bd8fc0645e18486c))
+* semantic version handling ([2e79c82](https://github.com/CoCreate-app/CoCreate-webpack/commit/2e79c82340d6e87d6b6dda20c781cbafd01a14fb))
+
+
+### Features
+
+* update ModuleGenerator to use pluginOptions and improve error handling ([af6db28](https://github.com/CoCreate-app/CoCreate-webpack/commit/af6db28d6f0dde3906b424dea975726ddfcf2101))
+
 ## [1.4.3](https://github.com/CoCreate-app/CoCreate-webpack/compare/v1.4.2...v1.4.3) (2026-02-04)
 
 
