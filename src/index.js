@@ -15,20 +15,19 @@ const upload = require("@cocreate/cli/src/commands/upload.js");
 /**
  * @class ModuleGenerator
  * @description A Webpack plugin that dynamically generates a module entry file 
- * (typically `modules.js`) based on a configuration object. It leverages 
+ * (typically `CoCreate.modules.js`) based on a configuration object. It leverages 
  * `@cocreate/lazy-loader` for efficient code splitting and dependency management.
  */
 class ModuleGenerator {
     /**
      * @constructor
-     * @param {Object} modulesConfig - The configuration for module generation.
-     * @param {Object} [modulesConfig.config] - Direct configuration object.
-     * @param {string} [modulesConfig.configPath] - Path to a CoCreate config file.
-     * @param {string} [modulesConfig.outputPath='./modules.js'] - Destination for the generated file.
+     * @param {Object} pluginOptions - The configuration for the plugin.
+     * @param {Object} [pluginOptions.config] - Direct CoCreate configuration object.
+     * @param {string} [pluginOptions.configPath] - Path to a CoCreate config file.
      */
-    constructor(modulesConfig) {
+    constructor(pluginOptions) {
         /** @type {Object} */
-        this.modulesConfig = modulesConfig;
+        this.pluginOptions = pluginOptions;
     }
 
     /**
@@ -40,15 +39,18 @@ class ModuleGenerator {
         let CoCreateConfig;
 
         // Resolve configuration source
-        if (typeof this.modulesConfig === "object") {
-            CoCreateConfig = this.modulesConfig.config;
-        } else {
+        if (typeof this.pluginOptions === "object") {
+            CoCreateConfig = this.pluginOptions;
+        } else if (this.pluginOptions && this.pluginOptions.configPath) {
             try {
-                CoCreateConfig = require(this.modulesConfig.configPath);
+                CoCreateConfig = require(this.pluginOptions.configPath);
             } catch (error) {
-                console.error("Error loading CoCreate.config.js:", error);
+                console.error("Error loading CoCreate config file:", error);
                 throw error;
             }
+        } else {
+            console.error("ModuleGenerator requires either a 'config' object or 'configPath' string.");
+            return;
         }
 
         /** @type {boolean} Track if modules have already been generated to avoid redundant writes. */
@@ -60,13 +62,21 @@ class ModuleGenerator {
                 if (modulesGenerated) {
                     callback();
                 } else {
-                    const outputPath = this.modulesConfig.outputPath || "./modules.js";
+                    // Fetch the output path from the root of the config, with a fallback
+                    const outputPath = this.pluginOptions.moduleOutputPath || "./CoCreate.modules.js";
                     let moduleContent = `import { dependency, lazyLoad } from '@cocreate/lazy-loader';\n\n`;
 
+                    // Ensure we are explicitly targeting the 'modules' namespace
+                    const modulesObj = CoCreateConfig.modules || {};
+
                     // Generate import statements based on module metadata
-                    Object.entries(this.modulesConfig).forEach(
+                    Object.entries(modulesObj).forEach(
                         ([moduleName, moduleInfo]) => {
-                            if (moduleName === "outputPath" || typeof moduleInfo !== "object") return;
+                            // Skip non-objects
+                            if (typeof moduleInfo !== "object" || moduleInfo === null) return;
+                            
+                            // Skip items that do not have an import defined (acts as 'continue' in forEach)
+                            if (!moduleInfo.import) return;
 
                             if (moduleInfo.selector) {
                                 // Logic for lazy-loading based on DOM selectors
@@ -168,10 +178,10 @@ class SymlinkCreator {
     apply(compiler) {
         compiler.hooks.afterEmit.tap("SymlinkPlugin", (compilation) => {
             // Standard symlink mappings for CoCreate PWA structure
-            this.createSymlink("./dist", "../dist", "dir");
-            this.createSymlink("./node_modules/@cocreate/pwa/src/service-worker.js", "../service-worker.js", "file");
-            this.createSymlink("./node_modules/@cocreate/pwa/src/manifest.webmanifest", "../manifest.webmanifest", "file");
-            this.createSymlink("./node_modules/@cocreate/pwa/src/offline.html", "../offline.html", "file");
+            // this.createSymlink("./dist", "../dist", "dir");
+            // this.createSymlink("./node_modules/@cocreate/pwa/src/service-worker.js", "../service-worker.js", "file");
+            // this.createSymlink("./node_modules/@cocreate/pwa/src/manifest.webmanifest", "../manifest.webmanifest", "file");
+            // this.createSymlink("./node_modules/@cocreate/pwa/src/offline.html", "../offline.html", "file");
         });
     }
 
