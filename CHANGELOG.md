@@ -1,3 +1,11 @@
+## [1.6.1](https://github.com/CoCreate-app/CoCreate-webpack/compare/v1.6.0...v1.6.1) (2026-07-17)
+
+
+### Bug Fixes
+
+* bump dependencies ([9101dab](https://github.com/CoCreate-app/CoCreate-webpack/commit/9101dab888a68db506b46ace777ab4cb2a0a27f3))
+* update dependencies to latest versions for improved stability and performance ([6ae8db7](https://github.com/CoCreate-app/CoCreate-webpack/commit/6ae8db7797fe8f1099961c8ba678110d08e43e67))
+
 # [1.6.0](https://github.com/CoCreate-app/CoCreate-webpack/compare/v1.5.0...v1.6.0) (2026-07-17)
 
 
