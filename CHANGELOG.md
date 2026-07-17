@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/CoCreate-app/CoCreate-webpack/compare/v1.5.0...v1.6.0) (2026-07-17)
+
+
+### Features
+
+* update automated workflow and release configuration for improved semantic release handling ([3ba7b27](https://github.com/CoCreate-app/CoCreate-webpack/commit/3ba7b274d241ecebd50e96723b685808b3444cbb))
+
 # [1.5.0](https://github.com/CoCreate-app/CoCreate-webpack/compare/v1.4.3...v1.5.0) (2026-07-11)
 
 
