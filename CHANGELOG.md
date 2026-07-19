@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/CoCreate-app/CoCreate-webpack/compare/v1.6.1...v1.6.2) (2026-07-19)
+
+
+### Bug Fixes
+
+* set default branch to main ([cf2e460](https://github.com/CoCreate-app/CoCreate-webpack/commit/cf2e46028f983abc9ede1f6248c8ba0735ee8b45))
+
 ## [1.6.1](https://github.com/CoCreate-app/CoCreate-webpack/compare/v1.6.0...v1.6.1) (2026-07-17)
 
 
