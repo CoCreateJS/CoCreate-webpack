@@ -55,7 +55,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "allowScripts": {
-    "@cocreate/acme@1.3.2": true,
+    "@cocreate/certificates@1.3.2": true,
     "@cocreate/actions@1.21.4": true,
     "@cocreate/api@1.22.5": true,
     "@cocreate/config@1.13.4": true,
