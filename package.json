@@ -41,7 +41,7 @@
   },
   "main": "./src/index.js",
   "dependencies": {
-    "@cocreate/cli": "^1.56.5",
+    "@cocreate/cli": "^1.60.0",
     "css-loader": "^7.1.4",
     "esbuild": "^0.25.12",
     "esbuild-loader": "^4.5.0",
