@@ -92,9 +92,9 @@ class ModuleGenerator {
 
                     if (moduleInfo.selector) {
                         const sanitizedSelector = moduleInfo.selector.replaceAll("'", '"');
-                        entryContent += `lazyLoad('${moduleName}', '${sanitizedSelector}', () => import(/*webpackChunkName: "${moduleName}-chunk"*/ '${moduleInfo.import}'));\n`;
+                        entryContent += `lazyLoad('${moduleName}', '${sanitizedSelector}', () => import(/*webpackChunkName: "${moduleName}"*/ '${moduleInfo.import}'));\n`;
                     } else {
-                        entryContent += `dependency('${moduleName}', import(/*webpackChunkName: "${moduleName}-chunk"*/ '${moduleInfo.import}'));\n`;
+                        entryContent += `dependency('${moduleName}', import(/*webpackChunkName: "${moduleName}"*/ '${moduleInfo.import}'));\n`;
                     }
                 });
 
