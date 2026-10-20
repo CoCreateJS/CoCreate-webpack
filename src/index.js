@@ -75,7 +75,17 @@ class ModuleGenerator {
 
                 let entryContent = `import { dependency, lazyLoad } from '@cocreate/lazy-loader';\n\n`;
 
-                const pluginsObj = CoCreateConfig.plugins || {};
+                const pluginsObj = Object.fromEntries(
+                    Object.entries(CoCreateConfig.plugins || {})
+                        .filter(([, pluginInfo]) =>
+                            pluginInfo && typeof pluginInfo === "object" &&
+                            (pluginInfo.js !== undefined || pluginInfo.css !== undefined)
+                        )
+                        .map(([pluginName, pluginInfo]) => [pluginName, {
+                            ...(pluginInfo.js !== undefined ? { js: pluginInfo.js } : {}),
+                            ...(pluginInfo.css !== undefined ? { css: pluginInfo.css } : {})
+                        }])
+                );
                 entryContent += `if (typeof window !== 'undefined') {\n`;
                 entryContent += `    window.CoCreateConfig = window.CoCreateConfig || {};\n`;
                 entryContent += `    window.CoCreateConfig.plugins = Object.assign(\n`;
@@ -85,18 +95,23 @@ class ModuleGenerator {
                 entryContent += `    );\n`;
                 entryContent += `}\n\n`;
 
-                const modulesObj = CoCreateConfig.modules || {};
-                Object.entries(modulesObj).forEach(([moduleName, moduleInfo]) => {
-                    if (typeof moduleInfo !== "object" || moduleInfo === null) return;
-                    if (!moduleInfo.import) return;
+                const appendImports = (entries) => {
+                    Object.entries(entries || {}).forEach(([name, info]) => {
+                        if (typeof info !== "object" || info === null || !info.import) return;
 
-                    if (moduleInfo.selector) {
-                        const sanitizedSelector = moduleInfo.selector.replaceAll("'", '"');
-                        entryContent += `lazyLoad('${moduleName}', '${sanitizedSelector}', () => import(/*webpackChunkName: "${moduleName}"*/ '${moduleInfo.import}'));\n`;
-                    } else {
-                        entryContent += `dependency('${moduleName}', import(/*webpackChunkName: "${moduleName}"*/ '${moduleInfo.import}'));\n`;
-                    }
-                });
+                        const importPath = JSON.stringify(info.import);
+                        const chunkName = name.replace(/[^A-Za-z0-9_-]/g, "-");
+                        const importExpression = `import(/* webpackChunkName: "${chunkName}" */ ${importPath})`;
+                        if (info.selector) {
+                            entryContent += `lazyLoad(${JSON.stringify(name)}, ${JSON.stringify(info.selector)}, () => ${importExpression});\n`;
+                        } else {
+                            entryContent += `dependency(${JSON.stringify(name)}, ${importExpression});\n`;
+                        }
+                    });
+                };
+
+                appendImports(CoCreateConfig.plugins);
+                appendImports(CoCreateConfig.modules);
 
                 fs.writeFile(entryOutputPath, entryContent, "utf8", (err) => {
                     if (err) {
