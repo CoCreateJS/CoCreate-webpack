@@ -13,7 +13,7 @@ Fork the [project on Github](https://github.com/CoCreate-app/CoCreate-webpack) a
 ```
 git clone https://github.com/contributor/CoCreate-webpack.git
 cd CoCreate-webpack
-git remote add upstream https://gitlab.com/cocreatejs/CoCreate-webpack.git
+git remote add upstream https://github.com/cocreatejs/CoCreate-webpack.git
 ```
 
 ## Create a Topic Branch
