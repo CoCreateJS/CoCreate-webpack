@@ -32,9 +32,9 @@
   "author": "CoCreate LLC",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CoCreate-app/CoCreate-webpack/issues"
+    "url": "https://github.com/CoCreateJS/CoCreate-webpack/issues"
   },
-  "homepage": "https://cocreate.app/docs/webpack",
+  "homepage": "https://CoCreateJS.com/docs/webpack",
   "funding": {
     "type": "GitHub Sponsors ❤",
     "url": "https://github.com/sponsors/CoCreate-app"
