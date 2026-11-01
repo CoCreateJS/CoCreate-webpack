@@ -1,6 +1,7 @@
 /**
  * @fileoverview Webpack plugins and loaders for the CoCreate ecosystem.
  * Includes unified entry generation (`CoCreate.entry.js`), automated file uploading, and symlink management.
+ * @environment tooling
  */
 
 const fs = require("fs");
@@ -18,6 +19,8 @@ try {
  * @class ModuleGenerator
  * @description Webpack plugin that generates a single unified entry file (`CoCreate.entry.js`)
  * containing both global plugin configuration and `@cocreate/lazy-loader` declarations.
+ * @public
+ * @environment tooling
  */
 class ModuleGenerator {
     /**
@@ -26,9 +29,14 @@ class ModuleGenerator {
      * @param {Object} [pluginOptions.config] - Direct CoCreate configuration object.
      * @param {string} [pluginOptions.configPath] - Path to a CoCreate config file.
      * @param {string} [pluginOptions.entryOutputPath="./CoCreate.entry.js"] - Path for generated unified entry file.
+     * @public
+     * @environment tooling
      */
     constructor(pluginOptions = {}) {
-        /** @type {Object} */
+        /** @type {Object}
+         * @public
+         * @environment tooling
+         */
         this.pluginOptions = pluginOptions;
     }
 
@@ -36,6 +44,8 @@ class ModuleGenerator {
      * @method apply
      * @description Taps into Webpack's `beforeCompile` hook to write the unified entry file.
      * @param {import('webpack').Compiler} compiler - The Webpack compiler instance.
+     * @public
+     * @environment tooling
      */
     apply(compiler) {
         let CoCreateConfig = null;
@@ -61,7 +71,10 @@ class ModuleGenerator {
             return;
         }
 
-        /** @type {boolean} State flag to avoid redundant disk writes during watch mode recompiles. */
+        /** @type {boolean} State flag to avoid redundant disk writes during watch mode recompiles.
+         * @private
+         * @environment tooling
+         */
         let entryGenerated = false;
 
         compiler.hooks.beforeCompile.tapAsync(
@@ -130,12 +143,16 @@ class ModuleGenerator {
 /**
  * @class FileUploader
  * @description Handles automated file uploads to the CoCreate platform during Webpack watch mode.
+ * @public
+ * @environment tooling
  */
 class FileUploader {
     /**
      * @constructor
      * @param {Object} [env={}] - Environment variables passed from the Webpack CLI.
      * @param {Object} [argv={}] - Command line arguments.
+     * @public
+     * @environment tooling
      */
     constructor(env = {}, argv = {}) {
         this.env = env;
@@ -147,6 +164,8 @@ class FileUploader {
      * @method apply
      * @description Hooks into compilation hooks to upload files to CoCreate.
      * @param {import('webpack').Compiler} compiler - The Webpack compiler instance.
+     * @public
+     * @environment tooling
      */
     apply(compiler) {
         if (this.isWatch && upload) {
@@ -170,6 +189,12 @@ class FileUploader {
     }
 }
 
+/**
+ * SymlinkCreator public API.
+ *
+ * @public
+ * @environment tooling
+ */
 class SymlinkCreator {
     apply(compiler) {
         // Symlink creation logic can be tapped here if required
@@ -182,3 +207,18 @@ module.exports = {
     SymlinkCreator, 
     UnicodeLoader: path.resolve(__dirname, 'replace-unicode.js') 
 };
+
+/**
+ * UnicodeLoader public API.
+ *
+ * @name UnicodeLoader
+ * @public
+ * @environment tooling
+ */
+
+/**
+ * A Webpack integration tool for CoCreate applications, enabling file watching, automated chunking, lazy loading, and file uploading. It leverages CoCreate.config for streamlined project builds and development workflows.
+ *
+ * @module webpack
+ * @environment tooling
+ */
