@@ -1,3 +1,33 @@
+# [2.0.0](https://github.com/CoCreateJS/Webpack/compare/v1.6.2...v2.0.0) (2026-11-02)
+
+
+### Bug Fixes
+
+* add Deno specific entries to .gitignore ([a2e073b](https://github.com/CoCreateJS/Webpack/commit/a2e073b311cdaf623b7230f25a26c5d22e6f6f9a))
+* bump [@cocreate](https://github.com/cocreate) dependencies ([74ad143](https://github.com/CoCreateJS/Webpack/commit/74ad14339007216683bb4bbb5012b4c10e3c9a4a))
+* bump versions ([e125202](https://github.com/CoCreateJS/Webpack/commit/e1252020f01a8d9606a0e8ba477927263fa9f01e))
+* bump versions ([baada5d](https://github.com/CoCreateJS/Webpack/commit/baada5defdd3a7e6f61729d9a70221339a6df008))
+* remove trailing slash from node_modules entry in .gitignore ([0c87eb8](https://github.com/CoCreateJS/Webpack/commit/0c87eb8e0ee09d6ffcdf995c5d720efd27400f4d))
+* simplify generated chunk names ([c06d2e0](https://github.com/CoCreateJS/Webpack/commit/c06d2e0f4cba6b1ae839376bf2810a839f5deb24))
+* update git url ([c98d393](https://github.com/CoCreateJS/Webpack/commit/c98d3932e4d83b19cb41ccbc568826d0d848ae7d))
+* update GitHub Actions to use latest versions and sync package.json description ([ee6bf88](https://github.com/CoCreateJS/Webpack/commit/ee6bf885f68d9bdad5ff79d50de73662f31eeb08))
+* update module generation logic and improve error handling ([2aef499](https://github.com/CoCreateJS/Webpack/commit/2aef499301eb0868b075c27c06264cad1052cf15))
+
+
+### chore
+
+* record repository identity migration as breaking ([ac51473](https://github.com/CoCreateJS/Webpack/commit/ac514739aabd2f4929438f3148668672e2b86e65))
+
+
+### Features
+
+* Replace acme with certificates ([c0df326](https://github.com/CoCreateJS/Webpack/commit/c0df326349e3bb0571449a06443d37b3a6e0ffa8))
+
+
+### BREAKING CHANGES
+
+* Consumers must use the CoCreateJS repository identity; the previous repository identity is no longer supported.
+
 ## [1.6.2](https://github.com/CoCreateJS/CoCreate-webpack/compare/v1.6.1...v1.6.2) (2026-07-19)
 
 
