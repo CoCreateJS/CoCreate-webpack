@@ -1,19 +1,19 @@
 # Contributing to CoCreate-webpack
 
-This project is work of [many contributors](https://github.com/CoCreateJS/CoCreate-webpack/graphs/contributors).
-You're encouraged to submit [pull requests](https://github.com/CoCreateJS/CoCreate-webpack/pulls),
-[propose features and discuss issues](https://github.com/CoCreateJS/CoCreate-webpack/issues).
+This project is work of [many contributors](https://github.com/CoCreateJS/Webpack/graphs/contributors).
+You're encouraged to submit [pull requests](https://github.com/CoCreateJS/Webpack/pulls),
+[propose features and discuss issues](https://github.com/CoCreateJS/Webpack/issues).
 
 In the examples below, substitute your Github username for `contributor` in URLs.
 
 ## Fork the Project
 
-Fork the [project on Github](https://github.com/CoCreateJS/CoCreate-webpack) and check out your copy.
+Fork the [project on Github](https://github.com/CoCreateJS/Webpack) and check out your copy.
 
 ```
-git clone https://github.com/contributor/CoCreate-webpack.git
-cd CoCreate-webpack
-git remote add upstream https://github.com/cocreatejs/CoCreate-webpack.git
+git clone https://github.com/contributor/Webpack.git
+cd Webpack
+git remote add upstream https://github.com/CoCreateJS/Webpack.git
 ```
 
 ## Create a Topic Branch
@@ -70,7 +70,7 @@ git push origin my-feature-branch
 
 ## Make a Pull Request
 
-Go to [https://github.com/CoCreateJS/CoCreate-webpack](https://github.com/CoCreateJS/CoCreate-webpack) and select your feature branch.
+Go to [https://github.com/CoCreateJS/Webpack](https://github.com/CoCreateJS/Webpack) and select your feature branch.
 Click the 'Pull Request' button and fill out the form. Pull requests are usually reviewed within a few days.
 
 ## Rebase
@@ -88,7 +88,7 @@ git push origin my-feature-branch -f
 Update the [CHANGELOG](CHANGELOG.md) with the pull request number. A typical entry looks as follows.
 
 ```
-* [#123](https://github.com/CoCreateJS/CoCreate-industry/pull/123): Reticulated splines - [@contributor](https://github.com/contributor).
+* [#123](https://github.com/CoCreateJS/industry/pull/123): Reticulated splines - [@contributor](https://github.com/contributor).
 ```
 
 Amend your previous commit and force push the changes.

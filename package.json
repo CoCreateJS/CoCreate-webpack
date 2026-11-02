@@ -27,17 +27,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cocreatejs/CoCreate-webpack.git"
+    "url": "git+https://github.com/CoCreateJS/Webpack.git"
   },
   "author": "CoCreate LLC",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CoCreateJS/CoCreate-webpack/issues"
+    "url": "https://github.com/CoCreateJS/Webpack/issues"
   },
   "homepage": "https://CoCreateJS.com/docs/webpack",
   "funding": {
     "type": "GitHub Sponsors ❤",
-    "url": "https://github.com/sponsors/CoCreate-app"
+    "url": "https://github.com/sponsors/CoCreateJS"
   },
   "main": "./src/index.js",
   "dependencies": {
