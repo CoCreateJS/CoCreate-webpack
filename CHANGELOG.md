@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/CoCreateJS/Webpack/compare/v2.0.0...v2.0.1) (2026-11-05)
+
+
+### Bug Fixes
+
+* upgrade CoCreate dependencies to v2 ([1fca741](https://github.com/CoCreateJS/Webpack/commit/1fca7413fa26ea11ebe0ac2870bb57ca3ae52c40))
+
 # [2.0.0](https://github.com/CoCreateJS/Webpack/compare/v1.6.2...v2.0.0) (2026-11-02)
 
 
