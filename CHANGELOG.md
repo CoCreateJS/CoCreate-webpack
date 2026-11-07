@@ -1,3 +1,11 @@
+## [2.0.2](https://github.com/CoCreateJS/Webpack/compare/v2.0.1...v2.0.2) (2026-11-07)
+
+
+### Bug Fixes
+
+* bump CoCreate dependency versions ([a6d6223](https://github.com/CoCreateJS/Webpack/commit/a6d622318aa27be110e4de2d5dbce2e7c287ed1a))
+* consolidate CRUD client and server packages ([451753c](https://github.com/CoCreateJS/Webpack/commit/451753cfaef519300ee7083eb6ce3edf00899dc0))
+
 ## [2.0.1](https://github.com/CoCreateJS/Webpack/compare/v2.0.0...v2.0.1) (2026-11-05)
 
 

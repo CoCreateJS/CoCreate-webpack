@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/webpack",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A Webpack integration tool for CoCreate applications, enabling file watching, automated chunking, lazy loading, and file uploading. It leverages CoCreate.config for streamlined project builds and development workflows.",
   "keywords": [
     "webpack",
